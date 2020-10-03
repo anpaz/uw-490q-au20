@@ -38,9 +38,9 @@ after calling the operation the state of register `x` must remain constant and t
 
 Implement the following oracles:
 
-    1. `Oracle_One`: that is, `f(x) = 1`
-    1. `Oracle_Kth_Qubit`: that is, an oracle that  `f(x) = 1 iff the k-th qubit is 1` 
-    1. `Oracle_Odd`: that is, an oracle that  `f(x) = 1 iff the x has an odd number of qubits in state 1` 
+1. `Oracle_One`: that is, `f(x) = 1`
+1. `Oracle_Kth_Qubit`: that is, an oracle that  `f(x) = 1 iff the k-th qubit is 1` 
+1. `Oracle_Odd`: that is, an oracle that  `f(x) = 1 iff the x has an odd number of qubits in state 1` 
 
 When complete, send the `.qs` file with the answers.
 
