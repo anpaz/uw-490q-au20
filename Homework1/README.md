@@ -9,6 +9,7 @@ For the extra credits, you'll also need to be able to run the QuantumKatas local
 Instructions on how to setup your development environment can be found 
 here: https://github.com/microsoft/QuantumKatas#run-the-katas-locally-
 
+Each Exercise has its own folder with a skeleton and entry-points of the programs to get you started. When completes, send the `.qs` file with the answer.
 
 
 ## Exercise 1: Superdense coding.
@@ -19,10 +20,7 @@ Write a Q# program that showcases the superdense coding protocol. The program sh
 3. A `DecodeMessage` operation that given two qubits, it removes entanglement and measures the qubits to return the encoded DecodeMessage
 4. A `Main` EntryPoint, that receives two bits of information, invokes the protocol and returns back the measurement of the Qubits.
     
-When complete, send the `.qs` file with the answer.
-
 See https://en.wikipedia.org/wiki/Superdense_coding for a good explanation of how the protocol works.
-
 
 
 ## Exercise 2: Oracles.
@@ -42,8 +40,6 @@ Implement the following oracles:
 1. `Oracle_Kth_Qubit`: that is, an oracle that  `f(x) = 1 iff the k-th qubit is 1` 
 1. `Oracle_Odd`: that is, an oracle that  `f(x) = 1 iff the x has an odd number of qubits in state 1` 
 
-When complete, send the `.qs` file with the answers.
-
 
 ## Exercise 3: In-place Adder.
 
@@ -57,13 +53,11 @@ Implement an in-place adder for 4-qubit registers.
 Once you have the adder, what would it take to implement an in-place substractor? i.e. an operation that given two qubit registers 
 as arguments, `x` and `y`, leaves the state of register `x` constant and changes the state of register `y` to be `|y - x>`.
 
-When complete, send the `.qs` file with the answers.
-
 
 
 ## Extra credit: Complete the Deutsch-Jozsa and Grover Search algorithm Katas.
 
-These Kata can be found in the /DeutschJozsaAlgorithm and /GroversAlgorithm folders accordingly of the [QuantumKatas repository](https://github.com/microsoft/QuantumKatas.git).
+These Katas can be found in the /DeutschJozsaAlgorithm and /GroversAlgorithm folders accordingly of the [QuantumKatas repository](https://github.com/microsoft/QuantumKatas.git).
 Clone the repository and complete the Kata locally. You may complete this exercise using either the Jupyter Notebook of the Q# version of the Katas. 
 Once completed, send the entire GroversAlgorithm folder with your changes.
 
