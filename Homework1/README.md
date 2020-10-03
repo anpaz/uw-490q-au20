@@ -14,11 +14,10 @@ here: https://github.com/microsoft/QuantumKatas#run-the-katas-locally-
 ## Exercise 1: Superdense coding.
 
 Write a Q# program that showcases the superdense coding protocol. The program should include:
-
-    1. A `PrepareBellState` operation that given two qubits in the |00> state, prepares a Bell Pair state
-    2. A `EncodeMessage` operation that encodes two bits of information into a single Qubit
-    3. A `DecodeMessage` operation that given two qubits, it removes entanglement and measures the qubits to return the encoded DecodeMessage
-    4. A `Main` EntryPoint, that receives two bits of information, invokes the protocol and returns back the measurement of the Qubits.
+1. A `PrepareBellState` operation that given two qubits in the |00> state, prepares a Bell Pair state
+2. A `EncodeMessage` operation that encodes two bits of information into a single Qubit
+3. A `DecodeMessage` operation that given two qubits, it removes entanglement and measures the qubits to return the encoded DecodeMessage
+4. A `Main` EntryPoint, that receives two bits of information, invokes the protocol and returns back the measurement of the Qubits.
     
 When complete, send the `.qs` file with the answer.
 
@@ -28,7 +27,7 @@ See https://en.wikipedia.org/wiki/Superdense_coding for a good explanation of ho
 
 ## Exercise 2: Oracles.
 
-Oracles are widely used in quantun algorithms. An oracle is a function `f(x)` that returns 1 if a condition is met, 0 otherwise.
+Oracles are widely used in quantun algorithms. An oracle is typically a function `f(x)` that returns 1 if a condition is met, 0 otherwise.
 A quantum oracle in Q# can be implemented as an `operation` that takes (at least) two arguments:
   * `x`: a register of n qubits in an arbitrary state
   * `y`: a qubit that holds the oracle answer
