@@ -9,7 +9,8 @@ For the extra credits, you'll also need to be able to run the QuantumKatas local
 Instructions on how to setup your development environment can be found 
 here: https://github.com/microsoft/QuantumKatas#run-the-katas-locally-
 
-Each Exercise has its own folder with a skeleton and entry-points of the programs to get you started. When completes, send the `.qs` file with the answer.
+Each Exercise has its own folder with a skeleton file to get you started. 
+When completed, rename the `.qs` file to include your user name and send the file with the answers.
 
 
 ## Exercise 1: Superdense coding.
