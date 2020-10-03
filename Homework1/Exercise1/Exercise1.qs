@@ -31,6 +31,7 @@
 
     /// # Summary
     /// This is the entry-point for the Q# program. It should implement the superdense protocol end-to-end.
+    ///
     /// To invoke this from the command line do:
     ///
     ///     dotnet run -- --bit1 true --bit2 false

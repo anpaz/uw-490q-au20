@@ -38,6 +38,7 @@
     /// # Summary
     /// This is the entry-point for the Q# programs. It takes a couple of parameters to 
     /// to help testing the oracles.
+    ///
     /// To invoke this from the command line do:
     ///
     ///     dotnet run -- -v 10 -k 2

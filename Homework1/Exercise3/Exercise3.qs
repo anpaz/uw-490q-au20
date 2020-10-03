@@ -16,10 +16,12 @@
 
     /// # Summary
     /// This is the entry-point for the Q# program. It takes two integers that will be added in place.
+    ///
     /// To invoke this from the command line do:
     ///
     ///     dotnet run -- -x 10 -y 2
-    ///    @EntryPoint()
+    ///
+    @EntryPoint()
     operation Main(x: Int, y: Int) : Int {
         let n = 4;
 
