@@ -53,7 +53,7 @@ namespace p2 {
 
     /// # Summary
     /// Transform state |x,y. into state $|x, y + f(x)>, 
-    /// i.e., flip the target state if at all of the qubits of the query register match the state represented
+    /// i.e., flip the target state if at any of the qubits of the query register match the state represented
     /// by the SAT `clause`. Each tuple in the clause is an (Int, Bool) pair in which:
     ///	    - the first element is the index j of the qubit x𝑗, 
     ///	    - the second element is true if the corresponding qubit is included as itself (x𝑗) 
