@@ -23,6 +23,14 @@ namespace p1 {
             // Read the result from b
             let r = DecodeInt(b, carry);
             Message($"{x} + {y} = {r}");
+            
+            // Call the Substract operation, after calling it the state should be back to
+            // a == |x>, b == |y>
+            Subtract(a, b, carry);
+
+            // Read the result from b
+            let final = DecodeInt(b, carry);
+            Message($"{x} + {y} - {x} = {final}");
 
             // To avoid errors from releasing non-measured qubits.
             ResetAll(qubits);
