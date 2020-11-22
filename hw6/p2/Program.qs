@@ -14,28 +14,28 @@ namespace p2 {
             EncodeInt(register, x);
 
             // Call the Oracle_And
-            Oracle_And(register, target);
+            p2.sln.Oracle_And(register, target);
             let a = MResetZ(target);            
             Message($"And({x}) = {a}");
 
             // Call the Oracle_6
-            Oracle_6(register, target);
+            p2.sln.Oracle_6(register, target);
             let b = MResetZ(target);
             Message($"IsSix({x}) = {b}");
 
             // Call the Oracle_Or
-            Oracle_Or(register, target);
+            p2.sln.Oracle_Or(register, target);
             let c = MResetZ(target);
             Message($"Or({x}) = {c}");
 
             // Call the Oracle_SATClause
             let clause = [(0, false), (1, true)];            
-            Oracle_SATClause(register, target, clause);
+            p2.sln.Oracle_SATClause(register, target, clause);
             let d = MResetZ(target);
             Message($"SATClause({x}, [~0,1]) = {d}");
                    
             // Call the Oracle_SAT
-            Oracle_SAT(register, target, [clause]);
+            p2.sln.Oracle_SAT(register, target, [clause]);
             let e = MResetZ(target);
             Message($"SAT({x}, [~0,1]) = {d}");
 

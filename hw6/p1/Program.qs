@@ -2,7 +2,7 @@ namespace p1 {
     open Microsoft.Quantum.Intrinsic;
     open Microsoft.Quantum.Measurement;
 
-    @EntryPoint()
+    //@EntryPoint()
     operation Main(x: Int, y: Int) : Unit {
         let n = 4; // Number of qubits
 
