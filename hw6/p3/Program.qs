@@ -5,13 +5,11 @@ namespace p3 {
     open Microsoft.Quantum.Measurement;
     open Microsoft.Quantum.Convert;
 
-    @EntryPoint()
+    //@EntryPoint()
     operation Main() : Result[] {            
         let n = 4;
-        let domain = IntAsDouble((1 <<< n) - 1);
-        let iterations = Floor(Sqrt(domain));
-        Message($"iterations: {iterations}");
-        
+        let iterations = GroverIterationsCount(n);
+
         // Select any oracle from p2
         let oracle = p2.Oracle_6;
 
@@ -19,6 +17,12 @@ namespace p3 {
             GroversSearch(register, oracle, iterations);            
             return MultiM(register);
         }
+    }
+
+    function GroverIterationsCount(n: Int) : Int {
+        let domain = IntAsDouble((1 <<< n) - 1);
+        let iterations = Floor(Sqrt(domain));
+        return iterations;
     }
 
     /// # Summary
