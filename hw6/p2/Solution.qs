@@ -38,10 +38,7 @@ namespace p2.sln {
             set targets += [queryRegister[index]];
         }
         
-        Fail(); 
-
         return targets;
-
     }
 
     operation Oracle_SATClause (queryRegister : Qubit[], target : Qubit, clause : (Int, Bool)[]) : Unit is Adj {
@@ -68,5 +65,99 @@ namespace p2.sln {
                 Controlled X(helpers, target);
             }
         }
+    }
+
+    @EntryPoint()
+    operation Main(x: Int) : Unit {
+        if (x < 0) {
+            testAllInputs();
+        } else {
+            testOneInput(x);
+        }
+    }
+
+    operation testAllInputs() : Unit {
+        let n = 4;
+        let max = (1 <<< n) - 1;
+
+        for((oracle, classical) in allOracles()) {
+            Message($"{oracle}");
+            for (x in 0..max) {
+                testOracle(x, oracle, classical);
+            }
+        }
+    }
+
+    operation testOneInput(x: Int) : Unit {
+        for((oracle, classical) in allOracles()) {
+            testOracle(x, oracle, classical);
+        }
+    }
+
+    operation testOracle(x: Int, oracle: ((Qubit[], Qubit) => Unit), answer: (Int -> Bool)) : Unit {
+        let n = 4;
+        using((qubits, target) = (Qubit[n], Qubit())) {
+            p2.EncodeInt(qubits, x);
+
+            oracle(qubits, target);
+            let actual = M(target);
+            let expected = answer(x) == true ? One | Zero;
+            let a = (actual == expected) ? "    " | "!!! ";
+
+            Message($"{a}{oracle} on {x} = {actual} {a}");
+            
+            ResetAll(qubits + [target]);
+        }
+    }
+
+    function classical_And(x: Int) : Bool {
+        let n = 4;
+        let max = (1 <<< n) - 1;
+        return (x == max);
+    }
+
+    function classical_6(x: Int) : Bool {
+        return (x == 6);
+    }
+
+    function classical_Or(x: Int) : Bool {
+        return (x != 0);
+    }
+
+    function classical_Clause0(x: Int) : Bool {
+        return (
+            (x > 7) or
+            (x == 0) or (x == 1) or
+            (x ==4) or (x ==5));
+    }
+
+    function classical_Clause1(x: Int) : Bool {
+        return 
+            (x < 8);
+    }
+
+    function classical_SAT(x: Int) : Bool {
+        return (classical_Clause0(x) and classical_Clause1(x));
+    }
+
+    function allOracles() : (((Qubit[], Qubit) => Unit is Adj), (Int -> Bool))[] {
+        let clauses = [
+            [
+                (1, false),
+                (3, true)
+            ],
+            [
+                (3, false)
+            ]
+        ];
+
+        return [
+            (p2.Oracle_And, classical_And),
+            (p2.Oracle_6, classical_6),
+            (p2.Oracle_Or, classical_Or),
+            (p2.Oracle_SATClause(_, _, clauses[0]), classical_Clause0),
+            (p2.Oracle_SATClause(_, _, clauses[1]), classical_Clause1),
+            (p2.Oracle_SAT(_, _, clauses), classical_SAT)
+        ];
     }
 }
